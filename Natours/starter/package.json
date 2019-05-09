@@ -4,15 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node_modules/node-sass/bin/node-sass sass/main.scss css/style.css -w",
+    "compile:sass:w": "node_modules/node-sass/bin/node-sass sass/main.scss css/style.css -w",
     "live:server": "node_modules/live-server/live-server.js",
-    "dev": "node_modules/concurrently/bin/concurrently.js --kill-others \"npm run compile:sass\" \"npm run live:server\""
+    "dev": "node_modules/concurrently/bin/concurrently.js --kill-others \"npm run compile:sass:w\" \"npm run live:server\"",
+    "compile:sass": "node_modules/node-sass/bin/node-sass sass/main.scss css/style.css",
+    "add:prefix": "node_modules/postcss-cli/bin/postcss css/style.css --no-map --use autoprefixer -r",
+    "prod": "npm run compile:sass && npm run add:prefix"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^9.5.1",
     "concurrently": "^4.1.0",
     "live-server": "^1.2.1",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.12.0",
+    "postcss-cli": "^6.1.2"
   }
 }
