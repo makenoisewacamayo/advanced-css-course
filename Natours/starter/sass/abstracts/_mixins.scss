@@ -5,3 +5,10 @@
     clear: both;
   }
 }
+
+@mixin center-box($top: 50%, $left: 50%, $translateX: -50%, $translateY: -50%) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate($translateX, $translateY);
+}
