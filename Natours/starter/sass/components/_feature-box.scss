@@ -6,6 +6,7 @@
   border-radius: $default-border-radious;
   box-shadow: 0 1.5rem 4rem rgba($color-white, .15);
   transition: transform .3s; 
+  will-change: transform;
 
   @include respond(tab-port) {
     padding: 1.5rem;
@@ -30,6 +31,6 @@
   }
 
   &__text {
-
+    font-size: $default-font-size;
   }
 }
