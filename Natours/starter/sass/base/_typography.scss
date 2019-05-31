@@ -11,7 +11,8 @@ body {
   color: $color-white;
   text-transform: uppercase;
   backface-visibility: hidden;
-  margin-bottom: 6rem;  
+  margin-bottom: 6rem; 
+  will-change: transform, opacity;
 
   
   &--main {
@@ -49,11 +50,16 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-  -webkit-background-clip: text;
+  color: $color-primary-dark;
   letter-spacing: .2rem;
-  color: transparent;
   transition: all .2s;
+  will-change: transform, text-shadow;
+
+  @supports (-webkit-background-clip: text) {
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 
   @include respond(tab-port) { // width < 600?
     font-size: 2.5rem;

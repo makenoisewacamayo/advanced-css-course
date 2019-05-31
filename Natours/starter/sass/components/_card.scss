@@ -1,19 +1,19 @@
 .card {
   // FUNCTIONALITY
-  perspective: 150rem;
   -moz-perspective: 150rem;
+  perspective: 150rem;
   position: relative;
   height: 52rem;
 
 
   &__side {
-    
     height: 52rem;
     transition: all .8s ease;
     position: absolute;
     top: 0;
     left: 0;
     width:100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: $default-border-radious;
     overflow: hidden;
@@ -24,6 +24,7 @@
     }
 
     &--back {
+     
       transform: rotateY(180deg);
       
       &-1 {
@@ -38,6 +39,11 @@
         background-image: linear-gradient(to right bottom, $color-terciary-light, $color-terciary-dark)
       }
     }
+  }
+
+  &:not(:hover) &__side--back {
+    opacity: 0;
+    width: 0;
   }
 
   &:hover &__side--front {
@@ -142,6 +148,55 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
+  }
+
+  @include respond(tab-port) {
+    height: auto;
+    border-radius: $default-border-radious;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba( $color-black, .15);
+
+    
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+      
+      &--back {
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+    &:not(:hover) &__side--back {
+      opacity: 1;
+      width: 100%;
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 0;
+    }
+
+    &__cta {
+      position: relative;
+      top: unset;
+      left: unset;
+      transform: translate(0);
+      width: 100%;
+      padding: 5rem 0;
+    }
+
+    &__price-box {
+      margin-bottom: 1.5rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+      font-weight: 400;
+    }
   }
 
 }

@@ -6,10 +6,17 @@
   left: 0;
   z-index: 9999;
   background-color: rgba($color-black, .8);
-  visibility: 0;
+  opacity: 0;
   visibility: hidden;
   transition: all .3s;
- 
+  will-change: opacity, transform;
+
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, .3);
+  }
+  
   
   &__content {
     @include center-box();
@@ -23,11 +30,22 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(.5);
     transition: all .4s .2s;
+
+    @include respond(tab-port) {
+      width: 90%;
+      background-image: url(img/nat-8.jpg);
+    }
+
   }
 
   &__left {
     width: 33.333333%;
     display: table-cell;
+    
+    @include respond(tab-port) {
+      width: 1px;
+    }
+
   }
 
   &__right {
@@ -35,6 +53,10 @@
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+
+    @include respond(tab-port) {
+      width: 99.99999%;
+    }
   }
 
   &__img {

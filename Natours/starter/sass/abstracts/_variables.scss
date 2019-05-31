@@ -31,3 +31,23 @@ $gutter-horizontal: 6rem;
 
 // BORDER RADIOUS
 $default-border-radious: 3px;
+
+
+// media query breakpoint
+
+/*
+0 - 600px Phone.
+600px - 900px Tablet portrait.
+900px - 1200px Tablet landscape.
+[1200 - 1800] is where our normal styles apply.
+1800px - : Big Desktop.
+
+1em = 16px;
+*/
+$phone: 37.5em;
+$tab-port: 56.9em;
+$tab-land: 75em;
+$big-desktop: 112.5em;
+
+
+$min-resolution: 192dpi;
