@@ -16,8 +16,10 @@
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: $default-border-radious;
-    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba( $color-black, .15);
+    @supports (not(-moz-appearance:none)) {
+      overflow: hidden;
+    }
 
     &--front {
       background-color: $color-white;
@@ -40,7 +42,7 @@
       }
     }
   }
-
+  
   &:not(:hover) &__side--back {
     opacity: 0;
     width: 0;
