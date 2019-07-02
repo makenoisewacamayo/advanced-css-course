@@ -6,7 +6,7 @@
   "scripts": {
     "watch:sass": "node_modules/node-sass/bin/node-sass sass/main.scss css/style.css -w",
     "live:server": "node_modules/live-server/live-server.js",
-    "dev": "node_modules/concurrently/bin/concurrently.js --kill-others \"npm run watch:sass\" \"npm run live:server\"",
+    "start": "node_modules/concurrently/bin/concurrently.js --kill-others \"npm run watch:sass\" \"npm run live:server\"",
 
     "compile:sass": "node_modules/node-sass/bin/node-sass sass/main.scss css/style.comp.css",
     "prefix:css": "node_modules/postcss-cli/bin/postcss  --no-map --use autoprefixer -b 'last 5 versions' css/style.comp.css -o css/style.prefix.css",
