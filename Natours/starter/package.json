@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch:sass": "node_modules/node-sass/bin/node-sass sass/main.scss css/style.css -w",
-    "live:server": "node_modules/live-server/live-server.js",
+    "live:server": "node_modules/live-server/live-server.js --browser=firefox",
     "start": "node_modules/concurrently/bin/concurrently.js --kill-others \"npm run watch:sass\" \"npm run live:server\"",
     "compile:sass": "node_modules/node-sass/bin/node-sass sass/main.scss css/style.comp.css",
     "concat:css": "node_modules/concat/bin/concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
